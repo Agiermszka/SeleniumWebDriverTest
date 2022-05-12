@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>SiiWebPageTests.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+SiiWebPageTests.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">org.openqa.selenium.WebDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.openqa.selenium.firefox.FirefoxDriver</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.AfterTest</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.BeforeTest</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">org.testng.annotations.Test</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">SiiWebPageTests {</span>
+    <span class="s0">private </span><span class="s1">WebDriver driver</span><span class="s0">;</span>
+
+    <span class="s1">@BeforeTest</span>
+    <span class="s0">public void </span><span class="s1">setUp() {</span>
+
+        <span class="s1">System.setProperty(</span><span class="s2">&quot;webdriver.gecko.driver&quot;</span><span class="s0">, </span><span class="s2">&quot;src/main/resources/geckodriver.exe&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">driver = </span><span class="s0">new </span><span class="s1">FirefoxDriver()</span><span class="s0">; </span><span class="s3">// inicjalizacja ChromeDrivera</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Test</span>
+    <span class="s0">public void </span><span class="s1">TestPrintSiiPageTitleOnConsole() {</span>
+        <span class="s1">driver.get(</span><span class="s2">&quot;https://sii.pl/&quot;</span><span class="s1">)</span><span class="s0">; </span><span class="s3">// uruchomienie strony Sii Polska</span>
+
+        <span class="s1">driver.getTitle()</span><span class="s0">; </span><span class="s3">// pobranie tytułu strony</span>
+
+        <span class="s1">System.out.println(driver.getTitle())</span><span class="s0">; </span><span class="s3">// pobranie tytułu strony i wyświetlenie go w konsoli</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@AfterTest</span>
+    <span class="s0">public void </span><span class="s1">tearDown() {</span>
+        <span class="s1">driver.close()</span><span class="s0">; </span><span class="s3">// zamknięcie przeglądarki</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
